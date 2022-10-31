@@ -1,10 +1,10 @@
 package hacs;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.io.*;
-import java.util.*;
+import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.Button;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
 
 /**
  * Title: HACS Description: Copyright: Copyright (c) 2002 Company: msu
@@ -14,7 +14,7 @@ import java.util.*;
  */
 
 public class Reminder extends JDialog {
-	ClassCourseList CourseList;
+	ClassCourseList courseList;
 	JLabel jLabel1 = new JLabel();
 	JLabel jLabel2 = new JLabel();
 	java.awt.List listUpcoming = new java.awt.List();
@@ -57,10 +57,10 @@ public class Reminder extends JDialog {
 		Assignment assignment;
 		ReminderVisitor visitor = new ReminderVisitor(this);
 		visitor.visitFacade(Hacs.theFacade);
-		show();
+		setVisible(true);
 	}
 
 	void buttonOK_actionPerformed(ActionEvent e) {
-		hide();
+		setVisible(false);
 	}
 }

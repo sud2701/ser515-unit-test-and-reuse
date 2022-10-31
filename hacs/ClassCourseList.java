@@ -1,7 +1,8 @@
 package hacs;
 
 import java.util.ArrayList;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
 
 /**
  * Title: HACS Description: Copyright: Copyright (c) 2002 Company: msu
@@ -18,7 +19,7 @@ public class ClassCourseList extends ArrayList<Course> {
 	}
 
 	//// initialize the list by reading from the file.
-	void InitializeFromFile(String theFileName) {
+	void initializeFromFile(String theFileName) {
 		try {
 			BufferedReader file;
 			String strCourseName = null;
@@ -26,20 +27,21 @@ public class ClassCourseList extends ArrayList<Course> {
 			while ((strCourseName = file.readLine()) != null) {
 				Course theCourse;
 				theCourse = new Course(strCourseName, 0);
-//      theCourse.CourseName= strCourseName;
+				// theCourse.CourseName= strCourseName;
 				add(theCourse);
 			}
+			file.close();
 		} catch (Exception ee) {
-			;
+			ee.printStackTrace();
 		}
 	}
 
-	Course FindCourseByCourseName(String CourseName) {
+	Course findCourseByCourseName(String courseName) {
 		int nCourseCount = size();
 		for (int i = 0; i < nCourseCount; i++) {
 			Course theCourse;
 			theCourse = (Course) get(i);
-			if (theCourse.CourseName.compareTo(CourseName) == 0)
+			if (theCourse.courseName.compareTo(courseName) == 0)
 				return theCourse;
 		}
 		return null;

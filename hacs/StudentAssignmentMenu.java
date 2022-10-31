@@ -1,10 +1,12 @@
 package hacs;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.io.*;
-import java.util.*;
+import java.awt.Rectangle;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import java.awt.event.ActionEvent;
+import java.util.Date;
 
 /**
  * Title: HACS Description: Copyright: Copyright (c) 2002 Company: msu
@@ -15,7 +17,7 @@ import java.util.*;
 
 public class StudentAssignmentMenu extends AssignmentMenu {
 
-////  class AssignmentMenu
+	//// class AssignmentMenu
 	private boolean boolSubmit = false;
 	private Solution theSolution;
 	private Assignment theAssignment;
@@ -98,42 +100,42 @@ public class StudentAssignmentMenu extends AssignmentMenu {
 	 */
 	public void ShowMenu(Assignment assignment, Person thePerson) {
 		theAssignment = assignment;
-		SolutionIterator theIter = theAssignment.GetSolutionIterator();
-		theSolution = (Solution) theIter.next(thePerson.UserName);
+		SolutionIterator theIter = theAssignment.getSolutionIterator();
+		theSolution = (Solution) theIter.next(thePerson.userName);
 		if (theSolution == null) {
 			tbSolution.setText("");
 			lGrade.setText("-1");
 		} else {
-			tbSolution.setText(theSolution.SolutionFileName);
+			tbSolution.setText(theSolution.solutionFileName);
 			lGrade.setText(theSolution.getGradeString());
 
 		}
 
-		lAssignmentName.setText(theAssignment.AssName);
-		lDueDate.setText(theAssignment.DueDate.toString());
-		lSuggestedSolution.setText(theAssignment.SuggestSolution.SolutionFileName);
+		lAssignmentName.setText(theAssignment.assignmentName);
+		lDueDate.setText(theAssignment.dueDate.toString());
+		lSuggestedSolution.setText(theAssignment.suggestSolution.solutionFileName);
 
-		show();
+		setVisible(true);
 
 		if (boolSubmit == true) {
 			if (theSolution == null) {
 				theSolution = new Solution();
-				theAssignment.AddSolution(theSolution);
+				theAssignment.addSolution(theSolution);
 			}
-			theSolution.theAuthor = thePerson.UserName;
-			theSolution.SolutionFileName = tbSolution.getText();
+			theSolution.theAuthor = thePerson.userName;
+			theSolution.solutionFileName = tbSolution.getText();
 			theSolution.theSubmitData = new Date();
 		}
 	}
 
 	void bSubmit_actionPerformed(ActionEvent e) {
 		boolSubmit = true;
-		hide();
+		setVisible(false);
 	}
 
 	void bCancel_actionPerformed(ActionEvent e) {
 		boolSubmit = false;
-		hide();
+		setVisible(false);
 	}
 
 }
