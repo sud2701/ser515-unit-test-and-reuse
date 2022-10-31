@@ -27,8 +27,8 @@ public class Facade {
 		Login login = new Login();
 		login.setModal(true);
 		login.setVisible(true);
-		userinfoItem.strUserName = login.GetUserName();
-		userinfoItem.UserType = login.GetUserType();
+		userinfoItem.strUserName = login.getUserName();
+		userinfoItem.userType = login.getUserType();
 		return login.isExit();
 	}
 
@@ -104,18 +104,18 @@ public class Facade {
 	//////////
 	void remind() {
 		Reminder theReminder = new Reminder();
-		theReminder.showReminder(thePerson.GetCourseList());
+		theReminder.showReminder(thePerson.getCourseList());
 	}
 
 	void createUser(UserInfoItem userinfoitem) {
-		if (userinfoitem.UserType == UserInfoItem.USER_TYPE.Student) /// student
+		if (userinfoitem.userType == UserInfoItem.USER_TYPE.Student) /// student
 		{
 			thePerson = new Student();
 		} else /// instructor
 		{
 			thePerson = new Instructor();
 		}
-		thePerson.UserName = userinfoitem.strUserName;
+		thePerson.userName = userinfoitem.strUserName;
 	}
 
 	/*
@@ -140,12 +140,12 @@ public class Facade {
 			{
 				strUserName = getUserName(aline);
 				strCourseName = getCourseName(aline);
-				if (strUserName.compareTo(thePerson.UserName) == 0) /// the UserName mateches
+				if (strUserName.compareTo(thePerson.userName) == 0) /// the UserName mateches
 				{
 					theSelecteCourse = findCourseByCourseName(strCourseName);
 					if (theSelecteCourse != null) /// Find the Course in the CourseList--->attach
 					{
-						thePerson.AddCourse(theSelecteCourse);
+						thePerson.addCourse(theSelecteCourse);
 					}
 				}
 			}
@@ -178,8 +178,8 @@ public class Facade {
 	 */
 	public boolean selectCourse() {
 		CourseSelectDlg theDlg = new CourseSelectDlg();
-		theSelecteCourse = theDlg.ShowDlg(thePerson.CourseList);
-		thePerson.CurrentCourse = theSelecteCourse;
+		theSelecteCourse = theDlg.ShowDlg(thePerson.courseList);
+		thePerson.currentCourse = theSelecteCourse;
 		nCourseLevel = theDlg.nCourseLevel;
 		return theDlg.isLogout();
 	}
@@ -191,8 +191,8 @@ public class Facade {
 	 */
 
 	public boolean courseOperation() {
-		thePerson.CreateCourseMenu(theSelecteCourse, nCourseLevel);
-		return thePerson.ShowMenu();//// 0: logout 1 select an other course
+		thePerson.createCourseMenu(theSelecteCourse, nCourseLevel);
+		return thePerson.showMenu();//// 0: logout 1 select an other course
 	}
 
 	/*

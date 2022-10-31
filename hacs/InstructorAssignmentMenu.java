@@ -19,12 +19,9 @@ import javax.swing.JTextField;
  */
 
 public class InstructorAssignmentMenu extends AssignmentMenu {
-  //// class AssignmentMenu
-  private boolean bSubmit = false;
   private Solution theSolution;
   private Assignment theAssignment;
   JComboBox CombSolutionList = new JComboBox();
-  ////////////////////////
 
   JTextField tbAssignmentName = new JTextField();
   JTextField tbDueDate = new JTextField();
@@ -95,12 +92,11 @@ public class InstructorAssignmentMenu extends AssignmentMenu {
 
   public void ShowMenu(Assignment assignment, Person person) {
     theAssignment = assignment;
-    Solution theSolution;
     tbAssignmentName.setText(theAssignment.assignmentName);
 
     DateFormat theDateFormat = DateFormat.getDateInstance(DateFormat.SHORT);
     tbDueDate.setText(theDateFormat.format(theAssignment.dueDate));
-    tbSuggestedSolution.setText(theAssignment.suggestSolution.SolutionFileName);
+    tbSuggestedSolution.setText(theAssignment.suggestSolution.solutionFileName);
     refreshSolutionList();
     setVisible(true);
   }
@@ -113,7 +109,7 @@ public class InstructorAssignmentMenu extends AssignmentMenu {
     } catch (Exception ee) {
     }
     ;
-    theAssignment.suggestSolution.SolutionFileName = tbSuggestedSolution.getText();
+    theAssignment.suggestSolution.solutionFileName = tbSuggestedSolution.getText();
     dispose();
   }
 
