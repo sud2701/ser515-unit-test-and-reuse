@@ -1,0 +1,8 @@
+﻿tutu:SER515
+tutu:SER501
+abc:SER531
+pepe:SER501
+meme:SER515
+xyz:SER501
+pqr:SER515
+papa:SER531

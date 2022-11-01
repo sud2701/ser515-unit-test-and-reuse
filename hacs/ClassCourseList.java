@@ -1,5 +1,6 @@
 package hacs;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -19,11 +20,11 @@ public class ClassCourseList extends ArrayList<Course> {
 	}
 
 	//// initialize the list by reading from the file.
-	void initializeFromFile(String theFileName) {
+	void initializeFromFile (String theFileName) throws Exception {
 		try {
 			BufferedReader file;
 			String strCourseName = null;
-			file = new BufferedReader(new FileReader("CourseInfo.txt"));
+			file = new BufferedReader(new FileReader(new File("CourseInfo.txt")));
 			while ((strCourseName = file.readLine()) != null) {
 				Course theCourse;
 				theCourse = new Course(strCourseName, 0);

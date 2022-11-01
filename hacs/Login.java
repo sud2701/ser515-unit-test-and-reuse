@@ -12,7 +12,6 @@ import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
-import hacs.UserInfoItem.USER_TYPE;
 
 /**
  * Title: HACS Description: Copyright: Copyright (c) 2002 Company: msu
@@ -39,7 +38,7 @@ public class Login extends JDialog {
 	ButtonGroup buttonGroup1 = new ButtonGroup();
 	////// Attributes Added By me
 	private String userBox = null;
-	private USER_TYPE userType = USER_TYPE.Student; // default to Student
+	private int userType = 0; // default to Student
 
 	public Login() {
 		try {
@@ -96,12 +95,12 @@ public class Login extends JDialog {
 		try {
 			if (studentRadio.isSelected() == true)//// student
 			{
-				userType = USER_TYPE.Student; /// 0 for student
-				file = new BufferedReader(new FileReader("StuInfo.txt"));
+				userType = 0; /// 0 for student
+				file = new BufferedReader(new FileReader("StudentInfo.txt"));
 			} else// instructor
 			{
-				userType = USER_TYPE.Instructor; // 1 for instructor
-				file = new BufferedReader(new FileReader("InsInfor.txt"));
+				userType = 1; // 1 for instructor
+				file = new BufferedReader(new FileReader("InstructorInfo.txt"));
 			}
 			userBox = userNameText.getText();
 			String passwordBox = new String(passwordText.getPassword());
@@ -123,7 +122,7 @@ public class Login extends JDialog {
 	}
 
 	/*
-	 * get the user name from aline UserName:Password
+	 * get the username from a line UserName:Password
 	 */
 	private String getUserName(String aline) {
 		int sep = aline.lastIndexOf(':');
@@ -131,7 +130,7 @@ public class Login extends JDialog {
 	}
 
 	/*
-	 * get the password from aline UserName:Password
+	 * get the password from a line UserName:Password
 	 */
 	private String getPassword(String aline) {
 		int sep = aline.lastIndexOf(':');
@@ -144,7 +143,7 @@ public class Login extends JDialog {
 	}
 
 	/* after login get the userType of the login interface */
-	public USER_TYPE getUserType() {
+	public int getUserType() {
 		return userType;
 	}
 

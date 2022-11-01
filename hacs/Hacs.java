@@ -18,7 +18,7 @@ public class Hacs {
 	public Hacs() {
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		// String strUsername;
 		// String strUserType = null;
 		UserInfoItem userinfoitem = new UserInfoItem();
@@ -32,7 +32,7 @@ public class Hacs {
 			// userinfoitem.UserType = 1;
 			theFacade.createUser(userinfoitem);
 			theFacade.attachCourseToUser();
-			if (userinfoitem.userType == UserInfoItem.USER_TYPE.Student) // if is a student remind him of the due date
+			if (userinfoitem.userType == 0) // if is a student remind him of the due date
 				theFacade.remind();
 			boolean bLogout = false;
 			while (!bLogout) {

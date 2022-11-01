@@ -1,6 +1,8 @@
 package hacs;
 
-import java.io.*;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
 
 /**
  * Title: HACS Description: Copyright: Copyright (c) 2002 Company: msu
@@ -15,7 +17,7 @@ import java.io.*;
 
 public class Facade {
 	public int userType;
-	private Course theSelecteCourse = null;
+	private Course theSelectedCourse = null;
 	private int nCourseLevel = 0;
 	ClassCourseList theCourseList;
 	Person thePerson;
@@ -42,7 +44,7 @@ public class Facade {
 	 * refreshed outside the function
 	 */
 
-	void AddAssignment(Course theCourse) {
+	void addAssignment(Course theCourse) {
 		AssignmentMenu theAssignmentMenu;
 		if (thePerson.type == 0)/// student
 		{
@@ -52,7 +54,7 @@ public class Facade {
 		}
 		Assignment theAssignment = new Assignment();
 		theAssignmentMenu.ShowMenu(theAssignment, thePerson);
-		theCourse.AddAssignment(theAssignment);
+		theCourse.addAssignment(theAssignment);
 	}
 
 	/*
@@ -62,7 +64,7 @@ public class Facade {
 	 * will call InstructorAssignmentMenu or StudentAssignmentMenu according to the
 	 * type of the user
 	 */
-	void ViewAssignment(Assignment theAssignment) {
+	void viewAssignment(Assignment theAssignment) {
 		AssignmentMenu theAssignmentMenu;
 		if (thePerson.type == 0)/// student
 		{
@@ -79,12 +81,12 @@ public class Facade {
 	 * this function will grade the give Solution: theSolution this function calls
 	 */
 
-	void GradeSolution(Solution theSolution) {
+	void gradeSolution(Solution theSolution) {
 		SolutionMenu solutionMenu = new SolutionMenu();
 		solutionMenu.ShowMenu(theSolution);
 	}
 
-	void ReportSolutions(Assignment theAssignment) {
+	void reportSolutions(Assignment theAssignment) {
 		Solution theSolution;
 		SolutionIterator theSolutionIterator;
 		theSolutionIterator = theAssignment.getSolutionIterator();
@@ -108,7 +110,7 @@ public class Facade {
 	}
 
 	void createUser(UserInfoItem userinfoitem) {
-		if (userinfoitem.userType == UserInfoItem.USER_TYPE.Student) /// student
+		if (userinfoitem.userType == 0) /// student
 		{
 			thePerson = new Student();
 		} else /// instructor
@@ -121,7 +123,7 @@ public class Facade {
 	/*
 	 * create a course list and intitialize it with the file CourseInfo.txt
 	 */
-	void createCourseList() {
+	void createCourseList() throws Exception {
 		theCourseList = new ClassCourseList();
 		theCourseList.initializeFromFile("CourseInfo.txt");
 	}
@@ -142,10 +144,10 @@ public class Facade {
 				strCourseName = getCourseName(aline);
 				if (strUserName.compareTo(thePerson.userName) == 0) /// the UserName mateches
 				{
-					theSelecteCourse = findCourseByCourseName(strCourseName);
-					if (theSelecteCourse != null) /// Find the Course in the CourseList--->attach
+					theSelectedCourse = findCourseByCourseName(strCourseName);
+					if (theSelectedCourse != null) /// Find the Course in the CourseList--->attach
 					{
-						thePerson.addCourse(theSelecteCourse);
+						thePerson.addCourse(theSelectedCourse);
 					}
 				}
 			}
@@ -178,8 +180,8 @@ public class Facade {
 	 */
 	public boolean selectCourse() {
 		CourseSelectDlg theDlg = new CourseSelectDlg();
-		theSelecteCourse = theDlg.ShowDlg(thePerson.courseList);
-		thePerson.currentCourse = theSelecteCourse;
+		theSelectedCourse = theDlg.ShowDlg(thePerson.courseList);
+		thePerson.currentCourse = theSelectedCourse;
 		nCourseLevel = theDlg.nCourseLevel;
 		return theDlg.isLogout();
 	}
@@ -191,7 +193,7 @@ public class Facade {
 	 */
 
 	public boolean courseOperation() {
-		thePerson.createCourseMenu(theSelecteCourse, nCourseLevel);
+		thePerson.createCourseMenu(theSelectedCourse, nCourseLevel);
 		return thePerson.showMenu();//// 0: logout 1 select an other course
 	}
 

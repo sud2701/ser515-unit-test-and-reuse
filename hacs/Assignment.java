@@ -20,6 +20,7 @@ public class Assignment {
   protected String assignmentSpecification;
   protected SolutionList theSolutionList = new SolutionList();
   protected Solution suggestSolution = new Solution();
+  protected boolean isAccepted;
 
   public Assignment() {
   }
@@ -55,7 +56,8 @@ public class Assignment {
   public void submitSolution() {
   }
 
-  public void getSolutionList() {
+  public SolutionList getSolutionList() {
+    return theSolutionList;
   }
 
   /*
@@ -86,5 +88,10 @@ public class Assignment {
 
   public void accept(NodeVisitor visitor) {
     visitor.visitAssignment(this);
+    this.isAccepted = true;
+  }
+
+  public String getAssignmentName() {
+    return this.assignmentName;
   }
 }

@@ -22,6 +22,8 @@ public class Course {
   int numberOfAssignments;
   int courseLevel;
 
+  boolean isAccepted;
+
   public Course(String courseName, int theCourseLevel) {
     this.courseName = courseName;
 
@@ -31,7 +33,7 @@ public class Course {
     this.numberOfAssignments = 0;
   }
 
-  public void AddAssignment(Assignment newAssignment) {
+  public void addAssignment(Assignment newAssignment) {
     assignmentList.add(newAssignment);
   }
 
@@ -41,6 +43,7 @@ public class Course {
 
   void accept(NodeVisitor visitor) {
     visitor.visitCourse(this);
+    this.isAccepted = true;
   }
 
 }
