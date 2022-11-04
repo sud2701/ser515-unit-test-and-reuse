@@ -3,6 +3,8 @@
  * 
  * @author Zhang ji Zhu Wei
  * @version 1.0
+ * @author Sudheer Reddy Kunduru
+ * @version 2.0
  */
 
 public class Instructor extends Person {
@@ -16,7 +18,7 @@ public class Instructor extends Person {
 			theCourseMenu = new HighLevelCourseMenu();
 		} else/// 1: LowLevel
 		{
-			theCourseMenu = new HighLevelCourseMenu();
+			theCourseMenu = new LowLevelCourseMenu();
 		}
 		return theCourseMenu;
 	}

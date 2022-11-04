@@ -14,12 +14,13 @@ import javax.swing.JTextField;
  * 
  * @author Zhang ji Zhu Wei
  * @version 1.0
+ * @author Sudheer Reddy Kunduru
+ * @version 2.0
  */
 
 public class InstructorAssignmentMenu extends AssignmentMenu {
-  private Solution theSolution;
   private Assignment theAssignment;
-  JComboBox CombSolutionList = new JComboBox();
+  JComboBox<Solution> CombSolutionList = new JComboBox<>();
 
   JTextField tbAssignmentName = new JTextField();
   JTextField tbDueDate = new JTextField();
@@ -40,7 +41,7 @@ public class InstructorAssignmentMenu extends AssignmentMenu {
     }
   }
 
-  private void jbInit() throws Exception {
+  private void jbInit() {
     jLabel1.setText("Assignment Name");
     jLabel1.setBounds(new Rectangle(25, 31, 118, 18));
     this.getContentPane().setLayout(null);
@@ -56,25 +57,13 @@ public class InstructorAssignmentMenu extends AssignmentMenu {
     tbSuggestedSolution.setBounds(new Rectangle(197, 149, 339, 22));
     buttonGrade.setText("Grade");
     buttonGrade.setBounds(new Rectangle(458, 199, 79, 29));
-    buttonGrade.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        buttonGrade_actionPerformed(e);
-      }
-    });
+    buttonGrade.addActionListener(this::buttonGrade_actionPerformed);
     buttonReport.setText("Report");
     buttonReport.setBounds(new Rectangle(365, 249, 79, 29));
-    buttonReport.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        buttonReport_actionPerformed(e);
-      }
-    });
+    buttonReport.addActionListener(this::buttonReport_actionPerformed);
     buttonClose.setText("Close");
     buttonClose.setBounds(new Rectangle(86, 253, 79, 29));
-    buttonClose.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        buttonClose_actionPerformed(e);
-      }
-    });
+    buttonClose.addActionListener(this::buttonClose_actionPerformed);
     CombSolutionList.setBounds(new Rectangle(32, 204, 413, 22));
     this.getContentPane().add(jLabel1, null);
     this.getContentPane().add(tbAssignmentName, null);
@@ -123,7 +112,7 @@ public class InstructorAssignmentMenu extends AssignmentMenu {
   void buttonReport_actionPerformed(ActionEvent e) {
     SolutionIterator iter = new SolutionIterator(theAssignment.theSolutionList);
     while (iter.hasNext()) {
-      Solution asolution = (Solution) iter.next();
+      Solution asolution = iter.next();
       asolution.setReported(true);
     }
     refreshSolutionList();
@@ -133,7 +122,7 @@ public class InstructorAssignmentMenu extends AssignmentMenu {
     CombSolutionList.removeAllItems();
     SolutionIterator solIter = new SolutionIterator(theAssignment.theSolutionList);
     while (solIter.hasNext()) {
-      theSolution = (Solution) solIter.next();
+      Solution theSolution = solIter.next();
       CombSolutionList.addItem(theSolution);
     }
   }

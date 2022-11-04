@@ -9,7 +9,7 @@ import java.util.*;
  * 
  * @author Ji Zhang, Wei Zhu
  * @version 1.0
- * @author mjfindler
+ * @author Sudheer Reddy Kunduru
  * @version 2.0
  *          Update to Java 8
  */

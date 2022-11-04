@@ -7,6 +7,8 @@ import java.util.Iterator;
  * 
  * @author Ji Zhang, Wei Zhu
  * @version 1.0
+ * @author Sudheer Reddy Kunduru
+ * @version 2.0
  */
 
 abstract public class Person {
@@ -15,7 +17,6 @@ abstract public class Person {
 	ClassCourseList courseList;
 	CourseMenu theCourseMenu;
 	Course currentCourse;
-	Assignment currentAssignment;
 
 	public Person() {
 		courseList = new ClassCourseList();
@@ -51,18 +52,14 @@ abstract public class Person {
 	public boolean showMenu() {
 		// create a iterator for the assignment list
 		// Iterator theIter=new ListIterator(CurrentCourse.AssList );
-		Iterator theIter = currentCourse.assignmentList.iterator();
+		Iterator<Assignment> theIter = currentCourse.assignmentList.iterator();
 		theCourseMenu.theCourse = currentCourse;
 		Assignment theAssignment;
 		while (theIter.hasNext()) {
-			theAssignment = (Assignment) theIter.next();
-			theCourseMenu.assignmentCombox.addItem(theAssignment);
+			theAssignment = theIter.next();
+			theCourseMenu.assignmentComboBox.addItem(theAssignment);
 		}
 		return false;
-	}
-
-	public ClassCourseList getCourseList() {
-		return courseList;
 	}
 
 	public void addCourse(Course theCourse) {

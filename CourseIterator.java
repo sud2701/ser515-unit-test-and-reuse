@@ -8,24 +8,20 @@ import java.util.Iterator;
  * 
  * @author Zhang ji Zhu Wei
  * @version 1.0
+ * @author Sudheer Reddy Kunduru
+ * @version 2.0
  */
 
-public class CourseIterator implements Iterator {
+public class CourseIterator implements Iterator<Object> {
   ClassCourseList theCourseList;
   int currentCourseNumber = -1;
-
-  public CourseIterator() {
-  }
 
   public CourseIterator(ClassCourseList courseList) {
     theCourseList = courseList;
   }
 
   public boolean hasNext() {
-    if (currentCourseNumber >= theCourseList.size() - 1)
-      return false;
-    else
-      return true;
+    return currentCourseNumber < theCourseList.size() - 1;
   }
 
   public Object next() {

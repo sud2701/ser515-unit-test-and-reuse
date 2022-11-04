@@ -8,7 +8,7 @@ import java.io.*;
  *
  * @author Zhang ji Zhu Wei
  * @version 1.0
- * @author mjfindler
+ * @author Sudheer Reddy Kunduru
  * @version 2.0
  *
  *          Update to Java 8
@@ -49,14 +49,14 @@ public class Login extends JDialog {
 		loginButton.setBounds(new Rectangle(31, 212, 85, 28));
 		loginButton.addActionListener(e -> {
 			try {
-				loginButton_actionPerformed(e);
+				loginButton_actionPerformed();
 			} catch (IOException ex) {
 				throw new RuntimeException(ex);
 			}
 		});
 		buttonExit.setText("Exit");
 		buttonExit.setBounds(new Rectangle(180, 211, 97, 28));
-		buttonExit.addActionListener(e -> buttonExit_actionPerformed(e));
+		buttonExit.addActionListener(this::buttonExit_actionPerformed);
 		userNameText.setBounds(new Rectangle(119, 52, 144, 22));
 		passwordText.setBounds(new Rectangle(118, 119, 147, 22));
 		studentRadio.setSelected(true);
@@ -76,32 +76,24 @@ public class Login extends JDialog {
 		buttonGroup1.add(instructorRadio);
 	}
 
-	void loginButton_actionPerformed(ActionEvent e) throws IOException {
+	void loginButton_actionPerformed() throws IOException {
 		BufferedReader file;
 		m_bExit = false;
 		System.out.println("login clicked");
-		file = new BufferedReader(new FileReader("StuInfo.txt"));
+
 			if (studentRadio.isSelected())//// student
 			{
 				userType = 0;
-				System.out.println("Before reading file");/// 0 for student
-				System.out.println(file.readLine());
-				System.out.println(file.readLine());
-				System.out.println(file.readLine());
-				System.out.println("After reading file");
+				file = new BufferedReader(new FileReader("StuInfo.txt"));
 			} else {
 				userType = 1; // 1 for instructor
-				System.out.println("Before reading file");
+
 				file = new BufferedReader(new FileReader("InsInfor.txt"));
-				System.out.println(file.readLine());
-				System.out.println(file.readLine());
-				System.out.println(file.readLine());
-				System.out.println("After reading file");
 			}
 			userBox = userNameText.getText();
 			String passwordBox = new String(passwordText.getPassword());
-			String LoginName = null;
-			String aline, userName, password;
+			String LoginName = "";
+			String aline = "", userName = "", password = "";
 			aline=file.readLine();
 			while (aline != null) {
 				userName = getUserName(aline);

@@ -13,6 +13,8 @@ import java.awt.event.ActionEvent;
  * 
  * @author Zhang ji Zhu Wei
  * @version 1.0
+ * @author Sudheer Reddy Kunduru
+ * @version 2.0
  */
 
 public class CourseSelectDlg extends JDialog {
@@ -21,7 +23,7 @@ public class CourseSelectDlg extends JDialog {
 	Course selectedCourse;
 	int nCourseLevel = 0;
 	boolean m_bLogout = false;
-	JComboBox<Course> courseNameCom = new JComboBox<Course>();
+	JComboBox<Course> courseNameCom = new JComboBox<>();
 	JRadioButton highLevelRadio = new JRadioButton();
 	JRadioButton lowLevelRadio = new JRadioButton();
 	JLabel jLabel1 = new JLabel();
@@ -39,7 +41,7 @@ public class CourseSelectDlg extends JDialog {
 		}
 	}
 
-	private void jbInit() throws Exception {
+	private void jbInit() {
 		this.getContentPane().setLayout(null);
 		courseNameCom.setBounds(new Rectangle(155, 41, 203, 22));
 		highLevelRadio.setText("HighLevel");
@@ -52,18 +54,10 @@ public class CourseSelectDlg extends JDialog {
 		jLabel1.setBounds(new Rectangle(39, 44, 85, 18));
 		okButton.setText("OK");
 		okButton.setBounds(new Rectangle(78, 139, 79, 29));
-		okButton.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				okButton_actionPerformed(e);
-			}
-		});
+		okButton.addActionListener(this::okButton_actionPerformed);
 		buttonLogout.setText("Logout");
 		buttonLogout.setBounds(new Rectangle(224, 140, 73, 31));
-		buttonLogout.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				buttonLogout_actionPerformed(e);
-			}
-		});
+		buttonLogout.addActionListener(this::buttonLogout_actionPerformed);
 		this.getContentPane().add(courseNameCom, null);
 		this.getContentPane().add(jLabel1, null);
 		this.getContentPane().add(highLevelRadio, null);

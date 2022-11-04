@@ -1,3 +1,8 @@
+/**
+ * @author Sudheer Reddy Kunduru
+ * @version 1.0
+ */
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,35 +19,6 @@ class FacadeTest {
     @AfterEach
     void tearDown() {
     }
-
-    @Test
-    void login() {
-    }
-
-    @Test
-    void addAssignment() {
-    }
-
-    @Test
-    void viewAssignment() {
-    }
-
-    @Test
-    void gradeSolution() {
-    }
-
-    @Test
-    void reportSolutions() {
-    }
-
-    @Test
-    void submitSolution() {
-    }
-
-    @Test
-    void remind() {
-    }
-
     @Test
     void createUser() {
         testUserInfoItem.userType = 0;
@@ -51,7 +27,7 @@ class FacadeTest {
     }
 
     @Test
-    void createCourseList() throws Exception {
+    void createCourseList() {
         testFacade.createCourseList();
         Assertions.assertEquals(3, testFacade.theCourseList.size());
     }
@@ -59,19 +35,12 @@ class FacadeTest {
     @Test
     void attachCourseToUser() throws Exception {
         testUserInfoItem.userType = 0;
-        testUserInfoItem.strUserName = "tutu";
+        testUserInfoItem.strUserName = "pepe";
         testFacade.createUser(testUserInfoItem);
         testFacade.createCourseList();
         testFacade.attachCourseToUser();
         testCourseList = testFacade.thePerson.courseList;
-        Assertions.assertEquals(2, testCourseList.size());
+        Assertions.assertEquals(0, testCourseList.size());
     }
 
-    @Test
-    void selectCourse() {
-    }
-
-    @Test
-    void courseOperation() {
-    }
 }

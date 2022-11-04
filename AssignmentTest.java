@@ -1,4 +1,10 @@
-import org.junit.jupiter.api.Assertions;
+/**
+ * @author Sudheer Reddy Kunduru
+ * @version 1.0
+ */
+
+
+
 import org.junit.jupiter.api.Test;
 
 import java.text.DateFormat;
@@ -33,10 +39,6 @@ class AssignmentTest {
         assertEquals(specification,testAssignment.assignmentSpecification);
     }
 
-    @org.junit.jupiter.api.Test
-    void isOverDue() {
-        assertTrue(testAssignment.isOverDue());
-    }
 
     @Test
     void addSolution() {
@@ -64,19 +66,20 @@ class AssignmentTest {
     void getSolution() {
         testSolution.theAuthor = "Sudheer Reddy Kunduru";
         testAssignment.addSolution(testSolution);
-        String result = testAssignment.getSolution("Sudheer Reddy Kunduru").theAuthor;
+        Solution testSolution = testAssignment.getSolution("Sudheer Reddy Kunduru");
+        String result = testSolution.theAuthor;
         assertEquals("Sudheer Reddy Kunduru", result);
     }
 
     @org.junit.jupiter.api.Test
     void getSuggestedSolution() {
-        assertEquals(testAssignment.getSuggestedSolution().getClass(), new Solution().getClass());
+        assertEquals(testAssignment.getSuggestedSolution().getClass(), Solution.class);
     }
 
     @org.junit.jupiter.api.Test
     void getSolutionIterator() {
         SolutionIterator testSolutionIterator = testAssignment.getSolutionIterator();
-        assertEquals(true,testSolutionIterator.solutionlist.isEmpty());
+        assertTrue(testSolutionIterator.solutionlist.isEmpty());
     }
 
     @org.junit.jupiter.api.Test
@@ -92,11 +95,5 @@ class AssignmentTest {
         testAssignment.setDueDate(testDueDate);
         DateFormat testDateFormat = DateFormat.getDateInstance(DateFormat.SHORT);
         assertEquals(testDateFormat.format(testDueDate), testAssignment.getDueDateString());
-    }
-
-    @org.junit.jupiter.api.Test
-    void accept() {
-        testAssignment.accept(new ReminderVisitor());
-        assertEquals(true, testAssignment.isAccepted);
     }
 }

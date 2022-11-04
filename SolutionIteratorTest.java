@@ -1,4 +1,8 @@
-import org.junit.jupiter.api.Assertions;
+/**
+ * @author Sudheer Reddy Kunduru
+ * @version 1.0
+ */
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -36,7 +40,7 @@ class SolutionIteratorTest {
     void remove() {
         testSolutionList.add(testSolution);
         assertTrue(testSolutionIterator.hasNext());
-        Solution temporary = (Solution) testSolutionIterator.next();
+        testSolutionIterator.next();
         testSolutionIterator.remove();
         assertFalse(testSolutionIterator.hasNext());
     }

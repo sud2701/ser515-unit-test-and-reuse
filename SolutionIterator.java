@@ -8,16 +8,15 @@ import java.util.Iterator;
  * 
  * @author Zhang ji Zhu Wei
  * @version 1.0
+ * @author Sudheer Reddy Kunduru
+ * @version 2.0
  */
 
-public class SolutionIterator implements Iterator {
+public class SolutionIterator implements Iterator<Solution> {
   SolutionList solutionlist;
 
   /// CurrentSolutionNumber: point to the location before the first element
   int currentSolutionNumber = -1;
-
-  public SolutionIterator() {
-  }
 
   public SolutionIterator(SolutionList thesolutionlist) {
     solutionlist = thesolutionlist;
@@ -30,42 +29,37 @@ public class SolutionIterator implements Iterator {
   }
 
   public boolean hasNext() {
-    /** @todo: Implement this java.util.Iterator method */
-    if (currentSolutionNumber >= solutionlist.size() - 1)
-      return false;
-    else
-      return true;
-    // throw new java.lang.UnsupportedOperationException("Method hasNext() not yet
-    // implemented.");
+
+    return currentSolutionNumber < solutionlist.size() - 1;
+
   }
 
-  public Object next() {
-    /** @todo: Implement this java.util.Iterator method */
-    if (hasNext() == true) {
+  public Solution next() {
+
+    if (hasNext()) {
       currentSolutionNumber++;
       return solutionlist.get(currentSolutionNumber);
     } else {
       return null;
     }
-    // throw new java.lang.UnsupportedOperationException("Method next() not yet
-    // implemented.");
+
   }
 
-  /// get the next Solution that fits the Username;
+
   public Object next(String userName) {
     Solution theSolution;
-    theSolution = (Solution) next();
+    theSolution = next();
     while (theSolution != null) {
       if (userName.compareTo(theSolution.theAuthor) == 0) {
         return theSolution;
       }
-      theSolution = (Solution) next();
+      theSolution = next();
     }
     return null;
   }
 
   public void remove() {
-    /** @todo: Implement this java.util.Iterator method */
+
     solutionlist.remove(currentSolutionNumber);
     // throw new java.lang.UnsupportedOperationException("Method remove() not yet
     // implemented.");

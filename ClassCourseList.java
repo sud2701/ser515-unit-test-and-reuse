@@ -8,8 +8,8 @@ import java.io.FileReader;
  * 
  * @author Zhang ji Zhu Wei
  * @version 1.0
- * @author mjfindler
- * @version 2.0 update to Java 8
+ * @author Sudheer Reddy Kunduru
+ * @version 2.0
  */
 
 public class ClassCourseList extends ArrayList<Course> {
@@ -18,10 +18,10 @@ public class ClassCourseList extends ArrayList<Course> {
 	}
 
 	//// initialize the list by reading from the file.
-	void initializeFromFile () throws Exception {
+	void initializeFromFile () {
 		try {
 			BufferedReader file;
-			String strCourseName = null;
+			String strCourseName;
 			File f = new File("CourseInfo.txt");
 			file = new BufferedReader(new FileReader(f));
 			while ((strCourseName = file.readLine()) != null) {
@@ -36,10 +36,9 @@ public class ClassCourseList extends ArrayList<Course> {
 	}
 
 	Course findCourseByCourseName(String courseName) {
-		int nCourseCount = size();
-		for (int i = 0; i < nCourseCount; i++) {
+		for (Course course : this) {
 			Course theCourse;
-			theCourse = (Course) get(i);
+			theCourse = course;
 			if (theCourse.courseName.compareTo(courseName) == 0)
 				return theCourse;
 		}

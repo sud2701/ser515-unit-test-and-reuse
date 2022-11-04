@@ -11,14 +11,14 @@ import java.util.Date;
  * 
  * @author Zhang ji Zhu Wei
  * @version 1.0
+ * @author Sudheer Reddy Kunduru
+ * @version 2.0
  */
 
 public class StudentAssignmentMenu extends AssignmentMenu {
 
 	//// class AssignmentMenu
 	private boolean boolSubmit = false;
-	private Solution theSolution;
-	private Assignment theAssignment;
 
 	JLabel lAssignmentName = new JLabel();
 	JLabel lDueDate = new JLabel();
@@ -42,7 +42,7 @@ public class StudentAssignmentMenu extends AssignmentMenu {
 		}
 	}
 
-	private void jbInit() throws Exception {
+	private void jbInit() {
 		jLabel1.setText("Assignment : ");
 		jLabel1.setBounds(new Rectangle(20, 36, 91, 18));
 		this.getContentPane().setLayout(null);
@@ -66,18 +66,10 @@ public class StudentAssignmentMenu extends AssignmentMenu {
 		lGrade.setBounds(new Rectangle(258, 226, 41, 18));
 		bSubmit.setText("Submit");
 		bSubmit.setBounds(new Rectangle(476, 124, 79, 29));
-		bSubmit.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				bSubmit_actionPerformed(e);
-			}
-		});
+		bSubmit.addActionListener(this::bSubmit_actionPerformed);
 		bCancel.setText("Cancel");
 		bCancel.setBounds(new Rectangle(475, 164, 79, 29));
-		bCancel.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				bCancel_actionPerformed(e);
-			}
-		});
+		bCancel.addActionListener(this::bCancel_actionPerformed);
 		this.getContentPane().add(jLabel1, null);
 		this.getContentPane().add(jLabel3, null);
 		this.getContentPane().add(jLabel5, null);
@@ -97,9 +89,8 @@ public class StudentAssignmentMenu extends AssignmentMenu {
 	 * solution for the student. after showing the solution attatch the soluiton;
 	 */
 	public void ShowMenu(Assignment assignment, Person thePerson) {
-		theAssignment = assignment;
-		SolutionIterator theIter = theAssignment.getSolutionIterator();
-		theSolution = (Solution) theIter.next(thePerson.userName);
+		SolutionIterator theIter = assignment.getSolutionIterator();
+		Solution theSolution = (Solution) theIter.next(thePerson.userName);
 		if (theSolution == null) {
 			tbSolution.setText("");
 			lGrade.setText("-1");
@@ -109,16 +100,16 @@ public class StudentAssignmentMenu extends AssignmentMenu {
 
 		}
 
-		lAssignmentName.setText(theAssignment.assignmentName);
-		lDueDate.setText(theAssignment.dueDate.toString());
-		lSuggestedSolution.setText(theAssignment.suggestSolution.solutionFileName);
+		lAssignmentName.setText(assignment.assignmentName);
+		lDueDate.setText(assignment.dueDate.toString());
+		lSuggestedSolution.setText(assignment.suggestSolution.solutionFileName);
 
 		setVisible(true);
 
-		if (boolSubmit == true) {
+		if (boolSubmit) {
 			if (theSolution == null) {
 				theSolution = new Solution();
-				theAssignment.addSolution(theSolution);
+				assignment.addSolution(theSolution);
 			}
 			theSolution.theAuthor = thePerson.userName;
 			theSolution.solutionFileName = tbSolution.getText();

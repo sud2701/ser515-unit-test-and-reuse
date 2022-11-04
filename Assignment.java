@@ -5,15 +5,16 @@
  * Company:      Department of Computer Science and Engineering, Michigan State University
  * @author Ji Zhang, Wei Zhu
  * @version 1.0
+ * @author Sudheer Reddy Kunduru
+ * @version 2.0
  */
 
-import java.util.Date;
 import java.text.DateFormat;
+import java.util.Date;
 
 public class Assignment {
 
   protected String assignmentName;
-  protected String strAssignmentFilename;
   protected Date dueDate = new Date();
   protected String assignmentSpecification;
   protected SolutionList theSolutionList = new SolutionList();
@@ -34,16 +35,7 @@ public class Assignment {
   public boolean isOverDue() {
     Date today;
     today = new Date();
-    if (today.after(this.dueDate)) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  public Solution addSolution() {
-    Solution mySolution = new Solution();
-    return mySolution;
+    return today.after(this.dueDate);
   }
 
   //// add the theSolution to the Solutionlist
@@ -62,7 +54,7 @@ public class Assignment {
    * return the solution of the give name
    */
   public Solution getSolution(String studentName) {
-    SolutionIterator Iterator = (SolutionIterator) theSolutionList.iterator();
+    SolutionIterator Iterator = new SolutionIterator(theSolutionList);
     return (Solution) Iterator.next(studentName);
   }
 
@@ -88,7 +80,4 @@ public class Assignment {
     this.isAccepted = true;
   }
 
-  public String getAssignmentName() {
-    return this.assignmentName;
-  }
 }

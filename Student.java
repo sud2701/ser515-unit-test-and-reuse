@@ -5,6 +5,8 @@
  * 
  * @author Ji Zhang, Wei Zhu
  * @version 1.0
+ * @author Sudheer Reddy Kunduru
+ * @version 2.0
  */
 
 public class Student extends Person {

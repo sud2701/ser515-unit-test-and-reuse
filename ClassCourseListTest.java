@@ -1,3 +1,8 @@
+/**
+ * @author Sudheer Reddy Kunduru
+ * @version 1.0
+ */
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,14 +19,14 @@ class ClassCourseListTest {
     }
 
     @Test
-    void initializeFromFile() throws Exception {
+    void initializeFromFile() {
         testCourseList.initializeFromFile();
         Assertions.assertEquals(3,testCourseList.size());
     }
 
     @Test
-    void findCourseByCourseName() throws Exception {
-        String testCourseName = "SER423";
+    void findCourseByCourseName() {
+        String testCourseName = "SER515";
         testCourseList.initializeFromFile();
         Assertions.assertEquals(testCourseName, testCourseList.findCourseByCourseName((testCourseName)).toString());
     }

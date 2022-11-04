@@ -3,14 +3,13 @@
  * 
  * @author Zhang ji Zhu Wei
  * @version 1.0
+ * @author Sudheer Reddy Kunduru
+ * @version 2.0
  */
 
 abstract public class NodeVisitor {
 
 	public NodeVisitor() {
-	}
-
-	public NodeVisitor(Object visitee) {
 	}
 
 	abstract public void visitFacade(Facade facade);

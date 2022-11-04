@@ -1,3 +1,8 @@
+/**
+ * @author Sudheer Reddy Kunduru
+ * @version 1.0
+ */
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -24,12 +29,12 @@ class SolutionTest {
     @Test
     void setReported() {
         testSolution.setReported(true);
-        Assertions.assertEquals(true,testSolution.isReported());
+        Assertions.assertTrue(testSolution.isReported());
     }
 
     @Test
     void isReported() {
         testSolution.setReported(false);
-        Assertions.assertEquals(false,testSolution.isReported());
+        Assertions.assertFalse(testSolution.isReported());
     }
 }

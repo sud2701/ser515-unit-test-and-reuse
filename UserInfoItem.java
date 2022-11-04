@@ -3,7 +3,7 @@
  * 
  * @author Zhang ji Zhu Wei
  * @version 1.0
- * @author mjfindler
+ * @author Sudheer Reddy Kunduru
  * @version 2.0
  * 
  *          Update to Java 8
@@ -11,9 +11,6 @@
 
 public class UserInfoItem {
 
-//	public enum USER_TYPE {
-//		Student, Instructor
-//	}
 
 	String strUserName;
 	int userType; // 0 : Student, 1: Instructor

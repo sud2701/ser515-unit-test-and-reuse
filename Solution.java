@@ -7,7 +7,7 @@ import java.util.Date;
  * 
  * @author Ji Zhang, Wei Zhu
  * @version 1.0
- * @author mjfindler
+ * @author Sudheer Reddy Kunduru
  * @version 2.0
  * 
  *          update to Java 8

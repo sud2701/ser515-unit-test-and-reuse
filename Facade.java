@@ -7,14 +7,13 @@ import java.io.IOException;
  * 
  * @author Zhang ji Zhu Wei
  * @version 1.0
- * @author mjfindler
+ * @author Sudheer Reddy Kunduru
  * @version 2.0
  * 
  *          Update to Jave 8
  */
 
 public class Facade {
-	public int userType;
 	private Course theSelectedCourse = null;
 	private int nCourseLevel = 0;
 	ClassCourseList theCourseList;
@@ -79,32 +78,32 @@ public class Facade {
 	 * this function will grade the give Solution: theSolution this function calls
 	 */
 
-	void gradeSolution(Solution theSolution) {
-		SolutionMenu solutionMenu = new SolutionMenu();
-		solutionMenu.ShowMenu(theSolution);
-	}
-
-	void reportSolutions(Assignment theAssignment) {
-		Solution theSolution;
-		SolutionIterator theSolutionIterator;
-		theSolutionIterator = theAssignment.getSolutionIterator();
-		theSolution = (Solution) theSolutionIterator.next();
-		while (theSolution != null) {
-			theSolution.setReported(true);
-			theSolution = (Solution) theSolutionIterator.next();
-		}
-	}
+//	void gradeSolution(Solution theSolution) {
+//		SolutionMenu solutionMenu = new SolutionMenu();
+//		solutionMenu.ShowMenu(theSolution);
+//	}
+//
+//	void reportSolutions(Assignment theAssignment) {
+//		Solution theSolution;
+//		SolutionIterator theSolutionIterator;
+//		theSolutionIterator = theAssignment.getSolutionIterator();
+//		theSolution = (Solution) theSolutionIterator.next();
+//		while (theSolution != null) {
+//			theSolution.setReported(true);
+//			theSolution = (Solution) theSolutionIterator.next();
+//		}
+//	}
 	////////////////////
 
 	// functions for StudentAssignmentMenu
-	void submitSolution(Assignment theAssignment, Solution theSolution) {
-		theAssignment.addSolution(theSolution);
-	}
+//	void submitSolution(Assignment theAssignment, Solution theSolution) {
+//		theAssignment.addSolution(theSolution);
+//	}
 
 	//////////
 	void remind() {
 		Reminder theReminder = new Reminder();
-		theReminder.showReminder(thePerson.getCourseList());
+		theReminder.showReminder();
 	}
 
 	void createUser(UserInfoItem userinfoitem) {
@@ -121,7 +120,7 @@ public class Facade {
 	/*
 	 * create a course list and intitialize it with the file CourseInfo.txt
 	 */
-	void createCourseList() throws Exception {
+	void createCourseList() {
 		theCourseList = new ClassCourseList();
 		theCourseList.initializeFromFile();
 	}
@@ -134,7 +133,7 @@ public class Facade {
 	void attachCourseToUser() throws IOException {
 		BufferedReader file;
 			file = new BufferedReader(new FileReader("UserCourse.txt"));
-			String aline, strUserName, strCourseName;
+			String aline = "", strUserName = "", strCourseName = "";
 			while ((aline = file.readLine()) != null) // not the EOF
 			{
 				strUserName = getUserName(aline);
