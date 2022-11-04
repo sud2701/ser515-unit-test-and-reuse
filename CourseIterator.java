@@ -24,6 +24,9 @@ public class CourseIterator implements Iterator<Object> {
     return currentCourseNumber < theCourseList.size() - 1;
   }
 
+  /*
+  Method to find the immediate next course
+   */
   public Object next() {
     if (hasNext()) {
       currentCourseNumber++;
@@ -37,7 +40,9 @@ public class CourseIterator implements Iterator<Object> {
     theCourseList.remove(currentCourseNumber);
   }
 
-  // the next Course that fits the given CourseName
+  /*
+   Finding the next Course that fits the given CourseName
+   */
   public Object next(String courseName) {
     Course theCourse;
     theCourse = (Course) next();

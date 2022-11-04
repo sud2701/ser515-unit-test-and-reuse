@@ -13,7 +13,7 @@ import javax.swing.*;
  */
 
 abstract public class AssignmentMenu extends JDialog {
-  abstract void ShowMenu(Assignment assignment, Person person);
+  abstract void showMenu(Assignment assignment, Person person);
 
   public AssignmentMenu() {
     setModal(true);

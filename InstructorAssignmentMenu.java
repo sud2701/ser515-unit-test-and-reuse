@@ -20,7 +20,7 @@ import javax.swing.JTextField;
 
 public class InstructorAssignmentMenu extends AssignmentMenu {
   private Assignment theAssignment;
-  JComboBox<Solution> CombSolutionList = new JComboBox<>();
+  JComboBox<Solution> comboSolutionList = new JComboBox<>();
 
   JTextField tbAssignmentName = new JTextField();
   JTextField tbDueDate = new JTextField();
@@ -64,7 +64,7 @@ public class InstructorAssignmentMenu extends AssignmentMenu {
     buttonClose.setText("Close");
     buttonClose.setBounds(new Rectangle(86, 253, 79, 29));
     buttonClose.addActionListener(this::buttonClose_actionPerformed);
-    CombSolutionList.setBounds(new Rectangle(32, 204, 413, 22));
+    comboSolutionList.setBounds(new Rectangle(32, 204, 413, 22));
     this.getContentPane().add(jLabel1, null);
     this.getContentPane().add(tbAssignmentName, null);
     this.getContentPane().add(jLabel2, null);
@@ -72,12 +72,12 @@ public class InstructorAssignmentMenu extends AssignmentMenu {
     this.getContentPane().add(jLabel3, null);
     this.getContentPane().add(tbSuggestedSolution, null);
     this.getContentPane().add(buttonClose, null);
-    this.getContentPane().add(CombSolutionList, null);
+    this.getContentPane().add(comboSolutionList, null);
     this.getContentPane().add(buttonGrade, null);
     this.getContentPane().add(buttonReport, null);
   }
 
-  public void ShowMenu(Assignment assignment, Person person) {
+  public void showMenu(Assignment assignment, Person person) {
     theAssignment = assignment;
     tbAssignmentName.setText(theAssignment.assignmentName);
 
@@ -90,9 +90,9 @@ public class InstructorAssignmentMenu extends AssignmentMenu {
 
   void buttonClose_actionPerformed(ActionEvent e) {
     theAssignment.assignmentName = tbAssignmentName.getText();
-    DateFormat tempDateFormat = DateFormat.getDateInstance(DateFormat.SHORT);
+    DateFormat temporaryDateFormat = DateFormat.getDateInstance(DateFormat.SHORT);
     try {
-      theAssignment.dueDate = tempDateFormat.parse(tbDueDate.getText());
+      theAssignment.dueDate = temporaryDateFormat.parse(tbDueDate.getText());
     } catch (Exception ee) {
       ee.printStackTrace();
     }
@@ -101,29 +101,29 @@ public class InstructorAssignmentMenu extends AssignmentMenu {
   }
 
   void buttonGrade_actionPerformed(ActionEvent e) {
-    Solution theSolution = (Solution) CombSolutionList.getSelectedItem();
+    Solution theSolution = (Solution) comboSolutionList.getSelectedItem();
     if (theSolution == null)
       return;
-    SolutionGradingDlg dlg = new SolutionGradingDlg();
-    dlg.show(theSolution);
+    SolutionGradingDlg dialog = new SolutionGradingDlg();
+    dialog.show(theSolution);
     refreshSolutionList();
   }
 
   void buttonReport_actionPerformed(ActionEvent e) {
-    SolutionIterator iter = new SolutionIterator(theAssignment.theSolutionList);
-    while (iter.hasNext()) {
-      Solution asolution = iter.next();
-      asolution.setReported(true);
+    SolutionIterator solutionIterator = new SolutionIterator(theAssignment.theSolutionList);
+    while (solutionIterator.hasNext()) {
+      Solution aSolution = solutionIterator.next();
+      aSolution.setReported(true);
     }
     refreshSolutionList();
   }
 
   private void refreshSolutionList() {
-    CombSolutionList.removeAllItems();
-    SolutionIterator solIter = new SolutionIterator(theAssignment.theSolutionList);
-    while (solIter.hasNext()) {
-      Solution theSolution = solIter.next();
-      CombSolutionList.addItem(theSolution);
+    comboSolutionList.removeAllItems();
+    SolutionIterator solutionIterator = new SolutionIterator(theAssignment.theSolutionList);
+    while (solutionIterator.hasNext()) {
+      Solution theSolution = solutionIterator.next();
+      comboSolutionList.addItem(theSolution);
     }
   }
 }

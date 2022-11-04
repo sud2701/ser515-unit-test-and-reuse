@@ -25,9 +25,10 @@ public class Course {
   public Course(String courseName, int theCourseLevel) {
     this.courseName = courseName;
 
-    // 0 HighLeve presentation 1 LowLevel Experiment
+    /* 0 HighLevel presentation
+       1 LowLevel Experiment
+     */
     this.courseLevel = theCourseLevel;
-    // this.AssList = NULL;
     this.numberOfAssignments = 0;
   }
 

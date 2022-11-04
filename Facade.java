@@ -22,7 +22,7 @@ public class Facade {
 	public Facade() {
 	}
 
-	static public boolean Login(UserInfoItem userinfoItem) {
+	static public boolean login(UserInfoItem userinfoItem) {
 		Login login = new Login();
 		login.setModal(true);
 		login.setVisible(true);
@@ -33,12 +33,9 @@ public class Facade {
 
 	/////////////////////////
 	// functions for CourseMenu
-	/*
-	 * When click the add button of the CourseMenu , call this function this
-	 * function will new an assignment fill the required infomation this function
-	 * will call InstructorAssignmentMenu or StudentAssignmentMenu according to the
-	 * type of the user it will not update the course menu. the coursemenu need to
-	 * refreshed outside the function
+	/* This method is triggered when the CourseMenu's add button is clicked,
+	it creates a new Student or Instructor Assignment Menu based
+	on the type of the person using it, however course menu is not updated in this method.
 	 */
 
 	void addAssignment(Course theCourse) {
@@ -50,7 +47,7 @@ public class Facade {
 			theAssignmentMenu = new InstructorAssignmentMenu();
 		}
 		Assignment theAssignment = new Assignment();
-		theAssignmentMenu.ShowMenu(theAssignment, thePerson);
+		theAssignmentMenu.showMenu(theAssignment, thePerson);
 		theCourse.addAssignment(theAssignment);
 	}
 
@@ -70,7 +67,7 @@ public class Facade {
 			theAssignmentMenu = new InstructorAssignmentMenu();
 		}
 
-		theAssignmentMenu.ShowMenu(theAssignment, thePerson);
+		theAssignmentMenu.showMenu(theAssignment, thePerson);
 	}
 
 	// functions for InstructorAssignmentMenu
@@ -78,34 +75,14 @@ public class Facade {
 	 * this function will grade the give Solution: theSolution this function calls
 	 */
 
-//	void gradeSolution(Solution theSolution) {
-//		SolutionMenu solutionMenu = new SolutionMenu();
-//		solutionMenu.ShowMenu(theSolution);
-//	}
-//
-//	void reportSolutions(Assignment theAssignment) {
-//		Solution theSolution;
-//		SolutionIterator theSolutionIterator;
-//		theSolutionIterator = theAssignment.getSolutionIterator();
-//		theSolution = (Solution) theSolutionIterator.next();
-//		while (theSolution != null) {
-//			theSolution.setReported(true);
-//			theSolution = (Solution) theSolutionIterator.next();
-//		}
-//	}
-	////////////////////
 
-	// functions for StudentAssignmentMenu
-//	void submitSolution(Assignment theAssignment, Solution theSolution) {
-//		theAssignment.addSolution(theSolution);
-//	}
-
-	//////////
 	void remind() {
 		Reminder theReminder = new Reminder();
 		theReminder.showReminder();
 	}
-
+	/*
+	Creating the Person object based on the selected type captured in userinfoitem object
+	*/
 	void createUser(UserInfoItem userinfoitem) {
 		if (userinfoitem.userType == 0) /// student
 		{
@@ -133,7 +110,9 @@ public class Facade {
 	void attachCourseToUser() throws IOException {
 		BufferedReader file;
 			file = new BufferedReader(new FileReader("UserCourse.txt"));
-			String aline = "", strUserName = "", strCourseName = "";
+			String aline = "";
+			String strUserName = "";
+			String strCourseName = "";
 			while ((aline = file.readLine()) != null) // not the EOF
 			{
 				strUserName = getUserName(aline);
@@ -150,7 +129,7 @@ public class Facade {
 	}
 
 	/*
-	 * get the user name from aline UserName:CourseName
+	 * get the username from a line UserName:CourseName
 	 */
 	private String getUserName(String aline) {
 		int Sep = aline.lastIndexOf(':');

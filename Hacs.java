@@ -18,17 +18,17 @@ public class Hacs {
 
 	public static void main(String[] args) throws Exception {
 
-		UserInfoItem userinfoitem = new UserInfoItem();
+		UserInfoItem userInfoItem = new UserInfoItem();
 		theFacade.createCourseList();
 		while (true) {
 			boolean bExit;
-			bExit = Facade.Login(userinfoitem);
+			bExit = Facade.login(userInfoItem);
 			if (bExit) {
 				break;
 			}
-			theFacade.createUser(userinfoitem);
+			theFacade.createUser(userInfoItem);
 			theFacade.attachCourseToUser();
-			if (userinfoitem.userType == 0) {
+			if (userInfoItem.userType == 0) {
 				theFacade.remind();
 			}
 			boolean bLogout = false;

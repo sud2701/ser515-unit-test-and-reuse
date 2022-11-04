@@ -23,7 +23,7 @@ public class CourseSelectDlg extends JDialog {
 	Course selectedCourse;
 	int nCourseLevel = 0;
 	boolean m_bLogout = false;
-	JComboBox<Course> courseNameCom = new JComboBox<>();
+	JComboBox<Course> courseNameCombo = new JComboBox<>();
 	JRadioButton highLevelRadio = new JRadioButton();
 	JRadioButton lowLevelRadio = new JRadioButton();
 	JLabel jLabel1 = new JLabel();
@@ -43,7 +43,7 @@ public class CourseSelectDlg extends JDialog {
 
 	private void jbInit() {
 		this.getContentPane().setLayout(null);
-		courseNameCom.setBounds(new Rectangle(155, 41, 203, 22));
+		courseNameCombo.setBounds(new Rectangle(155, 41, 203, 22));
 		highLevelRadio.setText("HighLevel");
 		highLevelRadio.setBounds(new Rectangle(50, 87, 103, 26));
 		lowLevelRadio.setToolTipText("");
@@ -58,7 +58,7 @@ public class CourseSelectDlg extends JDialog {
 		buttonLogout.setText("Logout");
 		buttonLogout.setBounds(new Rectangle(224, 140, 73, 31));
 		buttonLogout.addActionListener(this::buttonLogout_actionPerformed);
-		this.getContentPane().add(courseNameCom, null);
+		this.getContentPane().add(courseNameCombo, null);
 		this.getContentPane().add(jLabel1, null);
 		this.getContentPane().add(highLevelRadio, null);
 		this.getContentPane().add(lowLevelRadio, null);
@@ -80,14 +80,14 @@ public class CourseSelectDlg extends JDialog {
 		Course theCourse;
 		while ((theCourse = (Course) theIterator.next()) != null) /// end of the list
 		{
-			courseNameCom.addItem(theCourse);
+			courseNameCombo.addItem(theCourse);
 		}
 		setVisible(true);
 		return selectedCourse;
 	}
 
 	void okButton_actionPerformed(ActionEvent e) {
-		selectedCourse = (Course) courseNameCom.getSelectedItem();
+		selectedCourse = (Course) courseNameCombo.getSelectedItem();
 		if (highLevelRadio.isSelected())
 			nCourseLevel = 0; // highlevel course: 0
 		else

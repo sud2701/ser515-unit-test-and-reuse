@@ -38,7 +38,9 @@ public class Assignment {
     return today.after(this.dueDate);
   }
 
-  //// add the theSolution to the Solutionlist
+  /*
+  add the theSolution to the Solutionlist
+   */
   public void addSolution(Solution theSolution) {
     theSolutionList.add(theSolution);
   }
@@ -51,11 +53,11 @@ public class Assignment {
   }
 
   /*
-   * return the solution of the give name
+   * Return the solution of the given name
    */
   public Solution getSolution(String studentName) {
-    SolutionIterator Iterator = new SolutionIterator(theSolutionList);
-    return (Solution) Iterator.next(studentName);
+    SolutionIterator iterator = new SolutionIterator(theSolutionList);
+    return (Solution) iterator.next(studentName);
   }
 
   public Solution getSuggestedSolution() {
@@ -66,10 +68,17 @@ public class Assignment {
     return new SolutionIterator(theSolutionList);
   }
 
+  /*
+  Return the assignment name
+   */
+
   public String toString() {
     return assignmentName;
   }
 
+  /*
+  Return the dueDate in form of a string
+   */
   public String getDueDateString() {
     DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.SHORT);
     return dateFormat.format(dueDate);

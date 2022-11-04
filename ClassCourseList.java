@@ -17,7 +17,7 @@ public class ClassCourseList extends ArrayList<Course> {
 	public ClassCourseList() {
 	}
 
-	//// initialize the list by reading from the file.
+	/* Reading course data from CourseInfo.txt, The file contains names of all the available courses. */
 	void initializeFromFile () {
 		try {
 			BufferedReader file;
@@ -34,7 +34,7 @@ public class ClassCourseList extends ArrayList<Course> {
 			ee.printStackTrace();
 		}
 	}
-
+	/* Obtaining a Course Object from its name */
 	Course findCourseByCourseName(String courseName) {
 		for (Course course : this) {
 			Course theCourse;
