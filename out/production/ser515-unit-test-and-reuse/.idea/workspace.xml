@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b59a210e-d2dd-4f7f-88b9-0deaba98d768" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/hacs/Assignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/AssignmentMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/AssignmentMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/AssignmentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/AssignmentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/ClassCourseList.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClassCourseList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/ClassCourseListTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClassCourseListTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/CourseInfo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CourseInfo.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/CourseIterator.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseIterator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/CourseIteratorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseIteratorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/CourseMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/CourseSelectDlg.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSelectDlg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/CourseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/Facade.java" beforeDir="false" afterPath="$PROJECT_DIR$/Facade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/FacadeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/FacadeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/Hacs.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hacs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/HacsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/HacsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/HighLevelCourseMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/HighLevelCourseMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/Instructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Instructor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/InstructorAssignmentMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/InstructorAssignmentMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/InstructorInfo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/InsInfor.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/InstructorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/InstructorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/ListIterator.java" beforeDir="false" afterPath="$PROJECT_DIR$/ListIterator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/ListIteratorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ListIteratorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/LowLevelCourseMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/LowLevelCourseMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/NodeVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/NodeVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/Reminder.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reminder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/ReminderVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/ReminderVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/ReminderVisitorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ReminderVisitorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/SolutionGradingDlg.java" beforeDir="false" afterPath="$PROJECT_DIR$/SolutionGradingDlg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/SolutionIterator.java" beforeDir="false" afterPath="$PROJECT_DIR$/SolutionIterator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/SolutionIteratorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SolutionIteratorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/SolutionList.java" beforeDir="false" afterPath="$PROJECT_DIR$/SolutionList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/SolutionMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/SolutionMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/SolutionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SolutionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/StudentAssignmentMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/StudentAssignmentMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/StudentInfo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/StuInfo.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/StudentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/StudentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/UserCourse.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UserCourse.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hacs/UserInfoItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserInfoItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ser515-unit-test-and-reuse/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ser515-unit-test-and-reuse/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ser515-unit-test-and-reuse/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ser515-unit-test-and-reuse/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ser515-unit-test-and-reuse/hacs/CourseInfo.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ser515-unit-test-and-reuse/hacs/InstructorInfo.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ser515-unit-test-and-reuse/hacs/StudentInfo.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ser515-unit-test-and-reuse/hacs/UserCourse.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ser515-unit-test-and-reuse/ser515-unit-test-and-reuse.iml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ser515-unit-test-and-reuse/ser515-unit-test-and-reuse.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ser515-unit-test-and-reuse.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ser515-unit-test-and-reuse.iml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2H10YYrgdestVtdPqs34hCh90Yt" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/sudheer2701/Desktop/hacs/ser515-unit-test-and-reuse&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/hacs/textdata" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b59a210e-d2dd-4f7f-88b9-0deaba98d768" name="Changes" comment="" />
+      <created>1667437332028</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1667437332028</updated>
+      <workItem from="1667437335109" duration="7000" />
+      <workItem from="1667437374328" duration="50000" />
+      <workItem from="1667437466060" duration="592000" />
+      <workItem from="1667438169712" duration="1339000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
